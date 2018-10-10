@@ -1,0 +1,21 @@
+<div id="form-container">
+    <form #adminForm="ngForm">
+        <div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Location *</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="deskNo" required
+                           name="deskNo" [(ngModel)]="adminData.deskNo" placeholder="Seat No.."
+                           maxlength="128">
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit" style="margin-top: 34px; float: right;"
+                    (click)="(adminForm.form.valid)? onFormSubmit():null">Register</button>
+        </div>
+    </form>
+</div>

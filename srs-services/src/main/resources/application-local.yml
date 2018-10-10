@@ -1,0 +1,26 @@
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+  h2:
+    console:
+      enabled: true
+      path: /console
+  datasource:
+    url: jdbc:h2:mem:testdb;MVCC=TRUE;MULTI_THREADED=TRUE
+    driverClassName: org.h2.Driver
+
+security:
+  basic:
+    enabled: false
+  ignored:
+    - console/**
+    - health
+
+srs:
+  scheduler: 0 0/15 * * * ?

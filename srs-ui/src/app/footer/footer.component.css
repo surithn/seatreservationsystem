@@ -1,0 +1,46 @@
+.foot {
+  background-color: #828282;
+  padding: 8px 2%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font:normal 0.85em Arial;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  color:white;
+  font-size: 14px;
+  letter-spacing: .8px;
+  z-index: 4 !important;
+}
+
+.als-logo {
+  font-size: 1px;
+  color: transparent;
+  display: inline-block;
+  width: 71px;
+  height: 20px;
+  background-image: url(als-logo.svg);
+  background-position: top left;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  /*opacity: 0.6;*/
+  vertical-align: middle;
+  margin: 0px 5px 0px 5px;
+}
+
+.als-logo:hover {
+  opacity: 1;
+  background-position: bottom left;
+}
+
+
+.footer-right {
+  float: right;
+}
+.v-align
+{
+  vertical-align: middle;
+}

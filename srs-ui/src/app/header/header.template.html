@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="header">
+		<div class="col-xs-10 col-sm-6 pad0">
+			<span class="project-name">AZ BookMySeat</span>
+		</div>
+
+		<div class="pull-right">
+			<span class="user-name">Welcome {{api.userService.userName}} </span> <span
+				class="logo"> </span>
+		</div>
+
+	</div>
+	<div class="header-one row">
+		<div class="col-md-6">
+		<dx-menu #menu [dataSource]="products" displayExpr="name"
+			[showFirstSubmenuMode]="showFirstSubmenuModes"
+			orientation="horizontal" submenuDirection="auto"
+			[hideSubmenuOnMouseLeave]="true" (onItemClick)="itemClick($event)">
+		</dx-menu></div>
+		<div class="col-md-6" style="text-align: right;">
+			<dx-check-box [(value)]="api.hOccupied" style="color:white;" text="Booked" (onValueChanged)="api.showSelectedCheckbox()"></dx-check-box>
+			<dx-check-box [(value)]="api.hUnOccupied" text="Free" style="color:white;" (onValueChanged)="api.showSelectedCheckbox()"></dx-check-box>
+			<span *ngIf="api.showRegister" style="margin-left: 18px;">Register? </span><dx-switch *ngIf="api.showRegister" [(value)]="api.userService.admin" (onValueChanged)="api.getAllLocationList()"></dx-switch>
+		</div>
+	</div>
+</div>
+
+

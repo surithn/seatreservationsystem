@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>als-poc-model</artifactId>
+  <packaging>jar</packaging>
+  
+  <parent>
+		<groupId>com.astrazeneca.als.srs</groupId>
+		<artifactId>als-poc</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <properties>
+	<jmeter-plugin-version>2.0.3</jmeter-plugin-version>
+	<jmeter-analysis-version>1.0.6</jmeter-analysis-version>
+	<jmeter-threadgroup>test</jmeter-threadgroup>
+	<jmeter-threads>10</jmeter-threads>
+	<jmeter-delay>0</jmeter-delay>
+	<jmeter-duration>5</jmeter-duration>
+	<jmeter-thread-rampup>1</jmeter-thread-rampup>
+	<jmeter-throughput>100000000</jmeter-throughput>
+  </properties>
+  
+  <dependencies>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.16.6</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>com.oracle</groupId>
+          <artifactId>ojdbc7</artifactId>
+          <version>12.1.0.1</version>
+      </dependency>
+	
+  </dependencies>
+  
+  <build>
+		<plugins>
+			<plugin>
+              <groupId>com.lazerycode.jmeter</groupId>
+              <artifactId>jmeter-maven-plugin</artifactId>
+              <version>${jmeter-plugin-version}</version>
+              <executions>
+                  <execution>
+                      <id>jmeter-tests</id>
+                      <goals>
+                          <goal>jmeter</goal>
+                      </goals>
+                  </execution>
+              </executions>
+              <configuration>
+                   <propertiesUser>
+                       <!--A user which accesses all URLs-->
+                    <threadgroup00.name>${jmeter-threadgroup}</threadgroup00.name>
+                    <!--number of threads to use-->
+                    <threadgroup00.numberOfThreads>${jmeter-threads}</threadgroup00.numberOfThreads>
+                    <!--delay of the test in seconds-->
+                    <threadgroup00.scheduledDelay>${jmeter-delay}</threadgroup00.scheduledDelay>
+                    <!--duration of the test in seconds-->
+                    <threadgroup00.scheduledDuration>${jmeter-duration}</threadgroup00.scheduledDuration>
+                    <!--how long till all threads are up and running in seconds-->
+                    <threadgroup00.rampUp>${jmeter-thread-rampup}</threadgroup00.rampUp>
+                    <!--target throughput of all threads of the group per minute-->
+                    <threadgroup00.throughput>${jmeter-throughput}</threadgroup00.throughput>
+                </propertiesUser>
+                <ignoreResultFailures>true</ignoreResultFailures>
+            </configuration>
+       </plugin>
+       
+       <!--<plugin>
+           <groupId>com.lazerycode.jmeter</groupId>
+           <artifactId>jmeter-analysis-maven-plugin</artifactId>
+           <version>${jmeter-analysis-version}</version>
+           <executions>
+               <execution>
+                   <goals>
+                       <goal>analyze</goal>
+                   </goals>
+                   <phase>post-integration-test</phase>
+               </execution>
+           </executions>
+           <configuration>
+               <source>${project.build.directory}/jmeter/results/*</source>
+               <targetDirectory>${project.build.directory}/reports</targetDirectory>
+           </configuration>
+       </plugin>-->
+  	</plugins>
+  </build>
+  
+</project>

@@ -1,0 +1,25 @@
+/
+deep / #form {
+	margin: 10px;
+}
+
+/
+deep / .options {
+	padding: 20px;
+	background-color: #f5f5f5;
+	left: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+/
+deep / .caption {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+/
+deep / .option {
+	margin-top: 10px;
+}

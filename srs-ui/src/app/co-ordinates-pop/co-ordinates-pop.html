@@ -1,0 +1,11 @@
+<div id="form-container">
+	<div class="modal-body" style="padding-bottom: 0;">
+		<p>Are you sure that you want to book this seat?</p>
+	</div>
+	<div class="modal-footer">
+		<dx-button text="No" type="normal" [useSubmitBehavior]="true"
+			(onClick)="cancel()"> </dx-button>
+		<dx-button text="Yes" type="default" [useSubmitBehavior]="true"
+			(onClick)="confirm()" icon="check"> </dx-button>
+	</div>
+</div>

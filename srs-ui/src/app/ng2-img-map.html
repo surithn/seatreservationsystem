@@ -1,0 +1,19 @@
+<div class="img-map" #container (window:resize)="onResize($event)">
+	<img #image [imageZoom]="service.currentImageSrc" [src]="service.currentImageSrc" (load)="onLoad($event)">
+	<canvas #canvas (click)="onClick($event)" style="cursor: pointer;"
+		(mousemove)="onMousemove($event)" (mouseout)="onMouseout($event)"></canvas>
+</div>
+
+<dx-popup class="popup" [width]="350" [height]="height" [showTitle]="true"
+	[title]="title" [(visible)]="popupVisible" [closeOnOutsideClick]="false">
+<div *dxTemplate="let data of 'content'">
+	<div *ngIf="setLocation"><co-ordinates-pop (popVisible)="setVisible($event)" [deskNo]="location"></co-ordinates-pop></div>
+	<div *ngIf="service.userService.admin && !showLocation"><admin-pop (popVisible)="setVisible($event)" [adminData]="adminData"></admin-pop></div>
+</div>
+</dx-popup>
+<div *ngIf="showLocation"><dx-popup class="popup" [width]="350" [height]="height" [showTitle]="true"
+	[title]="title" [(visible)]="showLocation" [closeOnOutsideClick]="false">
+<div *dxTemplate="let data of 'content'">
+	<div *ngIf="showLocation"><user-data-popup [userDataPop]="userDataPop" [imgageUrl]="imgageUrl"></user-data-popup></div>
+</div>
+</dx-popup></div>

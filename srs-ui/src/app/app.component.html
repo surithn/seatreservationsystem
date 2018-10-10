@@ -1,0 +1,30 @@
+<div>
+	<my-app-header></my-app-header>
+</div>
+<div class="container img-container">
+	<img-map #imgMap *ngIf="!service.metrics"
+		[src]="service.currentImageSrc" markerRadius="5"
+		[markers]="service.markers" (mark)="onMark($event)"
+		(change)="onChange($event)" id="link4"></img-map>
+
+	<div *ngIf="service.metrics">
+		<div class="long-title">
+			<h3>Metrics by Seat</h3>
+		</div>
+		<div id="gauge-demo">
+			<dx-bar-gauge id="gauge" [startValue]="0" [endValue]="50"
+				[values]="values"> <dxo-label> <dxo-format
+				type="fixedPoint" [precision]="0"> </dxo-format> </dxo-label> <dxo-tooltip
+				[enabled]="true" [customizeTooltip]="customizeTooltip"></dxo-tooltip>
+			<dxo-export [enabled]="true"></dxo-export> </dx-bar-gauge>
+			<div id="panel">
+				<dx-check-box *ngFor="let product of service.metricProducts"
+					[text]="product.name" [(value)]="product.active"
+					(onValueChanged)="productsToValues()"></dx-check-box>
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+	<my-app-footer></my-app-footer>
+</div>
