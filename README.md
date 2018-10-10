@@ -78,14 +78,3 @@ Angular2 Spring Boot App
 	After that you can run your container with 'docker run -ti -p 8080:8080 angular2-springboot-poc'	
 	
 	
-  GIT Flow
-  --------
- 	Please refer to the following link for details about GIT flow standards: https://confluence.astrazeneca.net/display/SD/GIT+Flow
-
-		
-  Good luck! Any questions, please contact us here:
-  
-	
-	Abdul Jafferali: abdul.jefferali@astrazeneca.com
-	Francisco Riestra: francisco.riestra@astrazeneca.com
-	Adel Kassim: Adel.Kassim@astrazeneca.com
